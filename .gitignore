@@ -1,0 +1,9 @@
+bin/
+lib/
+__pycache__
+log.html
+output.xml
+report.html
+.idea/
+pyvenv.cfg
+pip-selfcheck.json
