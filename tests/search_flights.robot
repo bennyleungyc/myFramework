@@ -1,7 +1,7 @@
 *** Settings ***
 Resource         keywords//search_flights_keywords.robot
-Suite Setup     Open search page
-Suite Teardown  Close pages
+Test Setup     Open search page
+Test Teardown  Close pages
 
 *** Test Cases ***
 The user can search for flights

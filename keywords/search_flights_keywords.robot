@@ -1,7 +1,6 @@
 *** Settings ***
 Library         pages//SearchFlightPage.py  Chrome
 
-
 *** Keywords ***
 Open search page
     Open
