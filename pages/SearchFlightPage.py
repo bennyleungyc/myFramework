@@ -6,9 +6,11 @@ class SearchFlightPage(object):
     __url = "http://blazedemo.com/"
 
     def open(self):
+        print('SearchFlightPage====open')
         self._web.open(self.__url)
 
     def __init__(self, browser):
+        print('SearchFlightPage====init')
         self._web = Web(browser)
 
     def select_departure_city(self, city):
@@ -25,4 +27,3 @@ class SearchFlightPage(object):
 
     def close(self):
         self._web.close_all()
- 

@@ -1,4 +1,5 @@
 *** Settings ***
+Library         pages//BasePage.py
 Suite Setup		My Suite Setup    SuiteSetup
 Suite Teardown	My Suite Teardown    SuiteTeardown
 
@@ -9,8 +10,8 @@ ${LINK}    https://google.com
 *** Keywords ***
 My Suite Setup
 	[Arguments]    ${msg}
-	Log    ${msg}
+	suite setup    ${msg}
 
 My Suite Teardown
 	[Arguments]    ${msg}
-	Log    ${msg}
+	suite teardown    ${msg}

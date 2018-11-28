@@ -1,5 +1,5 @@
 *** Settings ***
-Library         pages//SearchFlightPage.py  Chrome
+Library         pages//SearchFlightPage.py    Chrome
 
 *** Keywords ***
 Open search page
@@ -10,7 +10,6 @@ Close pages
 
 Select departure
     [Arguments]  ${city}
-
     select departure city  ${city}
 
 select destination

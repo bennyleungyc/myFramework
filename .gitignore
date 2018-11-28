@@ -7,3 +7,4 @@ report.html
 .idea/
 pyvenv.cfg
 pip-selfcheck.json
+exportpath.sh

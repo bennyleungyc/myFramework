@@ -9,3 +9,4 @@ The user can search for flights
     Select Destination    London
     Search Flights
     Flights are found
+
