@@ -1,3 +1,6 @@
+from webdriver.WebDriverManager import WebDriverManager
+
+
 __all__ = ['visible', 'cacheable', 'callable_find_by', 'property_find_by']
 
 
@@ -21,25 +24,25 @@ _strategy_kwargs = ['id_', 'xpath', 'link_text', 'partial_link_text',
                     'name', 'tag_name', 'class_name', 'css_selector']
 
 
-def _callable_find_by(how, using, multiple, cacheable, context, driver_attr, **kwargs):
+def _callable_find_by(how, using, multiple, cacheable, context, **kwargs):
     def func(self):
         # context - driver or a certain element
         if context:
             ctx = context() if callable(context) else context.__get__(self)  # or property
         else:
-            ctx = getattr(self, driver_attr)
+            ctx = WebDriverManager.getdriver()
 
         # 'how' AND 'using' take precedence over keyword arguments
         if how and using:
             lookup = ctx.find_elements if multiple else ctx.find_element
             return lookup(how, using)
 
-        if len(kwargs) != 1 or kwargs.keys()[0] not in _strategy_kwargs:
+        if len(kwargs) != 1 or list(kwargs.keys())[0] not in _strategy_kwargs:
             raise ValueError(
                 "If 'how' AND 'using' are not specified, one and only one of the following "
                 "valid keyword arguments should be provided: %s." % _strategy_kwargs)
 
-        key = kwargs.keys()[0];
+        key = list(kwargs.keys())[0];
         value = kwargs[key]
         suffix = key[:-1] if key.endswith('_') else key  # find_element(s)_by_xxx
         prefix = 'find_elements_by' if multiple else 'find_element_by'
@@ -49,14 +52,14 @@ def _callable_find_by(how, using, multiple, cacheable, context, driver_attr, **k
     return cacheable_decorator(func) if cacheable else func
 
 
-def callable_find_by(how=None, using=None, multiple=False, cacheable=False, context=None, driver_attr='_driver',
+def callable_find_by(how=None, using=None, multiple=False, cacheable=False, context=None,
                      **kwargs):
-    return _callable_find_by(how, using, multiple, cacheable, context, driver_attr, **kwargs)
+    return _callable_find_by(how, using, multiple, cacheable, context, **kwargs)
 
 
-def property_find_by(how=None, using=None, multiple=False, cacheable=False, context=None, driver_attr='_driver',
+def property_find_by(how=None, using=None, multiple=False, cacheable=False, context=None,
                      **kwargs):
-    return property(_callable_find_by(how, using, multiple, cacheable, context, driver_attr, **kwargs))
+    return property(_callable_find_by(how, using, multiple, cacheable, context, **kwargs))
 
 
 def visible(element):

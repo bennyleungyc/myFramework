@@ -1,6 +1,6 @@
 *** Settings ***
 Library         pages//BasePage.py
-Suite Setup		My Suite Setup    SuiteSetup
+Suite Setup		My Suite Setup    Chrome
 Suite Teardown	My Suite Teardown    SuiteTeardown
 
 *** Variables ***

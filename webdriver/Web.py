@@ -10,7 +10,7 @@ class Web(object):
 
     def __init__(self, browser):
         # webdrivermanager = WebDriverManager(browser)
-        WebDriverManager.setdriver(browser)
+
         self._driver = WebDriverManager.getdriver()
         self._wait = WebDriverWait(self._driver, 10)
 
