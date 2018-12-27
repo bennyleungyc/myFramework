@@ -15,3 +15,5 @@ The user can search for flights
     select departure and destination    ${Departure}    ${Destination}
     Choose Flights
     Input Username    ${Username}
+    ${flight_title}=    Get Title Content
+    Should Not Be Empty    ${flight_title}

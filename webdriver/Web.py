@@ -49,7 +49,7 @@ class Web(object):
         return element.is_selected()
 
     def get_text_from_element(self, element):
-        return element.text()
+        return element.text
 
     def open(self, path):
         self._driver.get(path)

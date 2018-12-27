@@ -1,4 +1,5 @@
 from webdriver.Web import Web
+from config import DEFAULT_BASE_URL
 from utils.pagefactory_support import cacheable, callable_find_by as find_by
 
 
@@ -11,7 +12,8 @@ class SearchFlightPage(object):
 
     def open(self):
         print('SearchFlightPage====open')
-        self._web.open(self.__url)
+        # self._web.open(self.__url)
+        # self._web.open(DEFAULT_BASE_URL)
 
     def __init__(self, browser):
         print('SearchFlightPage====init')
