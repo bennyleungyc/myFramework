@@ -1,7 +1,5 @@
 from webdriver.Web import Web
-from config import DEFAULT_BASE_URL
 from utils.pagefactory_support import cacheable, callable_find_by as find_by
-
 
 class SearchFlightPage(object):
 
@@ -9,11 +7,6 @@ class SearchFlightPage(object):
     _click_button = find_by(xpath="//input[@type='submit']")
     _from_port_dropdown = find_by(xpath="//select[@name='fromPort']")
     _to_port_dropdown = find_by(xpath="//select[@name='toPort']")
-
-    def open(self):
-        print('SearchFlightPage====open')
-        # self._web.open(self.__url)
-        # self._web.open(DEFAULT_BASE_URL)
 
     def __init__(self, browser):
         print('SearchFlightPage====init')
@@ -35,5 +28,3 @@ class SearchFlightPage(object):
     def get_found_flights(self):
         return self._web.get_web_elements_by_xpath("//table[@class='table']/tbody/tr")
 
-    def close(self):
-        self._web.close_all()

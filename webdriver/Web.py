@@ -9,8 +9,6 @@ class Web(object):
     _driver = None
 
     def __init__(self, browser):
-        # webdrivermanager = WebDriverManager(browser)
-
         self._driver = WebDriverManager.getdriver()
         self._wait = WebDriverWait(self._driver, 10)
 
@@ -51,8 +49,11 @@ class Web(object):
     def get_text_from_element(self, element):
         return element.text
 
-    def open(self, path):
+    def openlink(self, path):
         self._driver.get(path)
 
     def close_all(self):
+        # print('abc')
+        self._driver.close()
         self._driver.quit()
+        # self._driver.stop()

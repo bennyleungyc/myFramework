@@ -15,9 +15,11 @@ class WebDriverManager(object):
 
     @classmethod
     def setdriver(cls, browser):
-        if cls.__driver is None:
-            if (browser.lower()) == "chrome":
-                cls.__driver = webdriver.Chrome(ChromeDriverManager().install())
+        print(cls.__driver)
+        # if cls.__driver is None:
+        cls.__driver = webdriver.Chrome(ChromeDriverManager().install())
+            # cls.__driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+
 
     @classmethod
     def getdriver(cls):
