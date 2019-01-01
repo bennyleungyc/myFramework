@@ -13,6 +13,7 @@ ${Username}    Peter
 
 *** Test Cases ***
 The user can search for flights
+    [tags]  functionA
     select departure and destination    ${Departure}    ${Destination}
     Choose Flights
     Input Username    ${Username}

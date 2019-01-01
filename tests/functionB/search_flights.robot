@@ -13,6 +13,7 @@ ${Username}    Peter
 
 *** Test Cases ***
 The user can search for flights
+    [tags]  uat
     select departure and destination    ${Departure}    ${Destination}
     Choose Flights
     Input Username    ${Username}
