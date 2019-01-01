@@ -1,0 +1,35 @@
+node {
+   stage('Git Job') {
+       def workspace = pwd()
+       echo workspace
+    //   git credentialsId: 'e67ab962-5a34-4e25-b83f-f92d05afe9bc', url: 'https://github.com/bennyleungyc/myFramework.git'
+   script {
+      try {
+          sh '''. start.sh
+                python -m pip install -r requirement.txt
+                export PYTHONPATH=$PYTHONPATH:$workspace
+                robot --include uat tests/
+            '''
+      } catch (Exception e) {
+          
+      }
+    }     
+   }
+   stage('Build') {
+    //   sh 'robot tests/'
+   }
+   stage('Results') {
+        step([$class: 'RobotPublisher',
+              outputPath: '',
+              outputFileName: 'output.xml',
+              reportFileName: 'report.html',
+              logFileName: 'log.html',
+              otherFiles: '',
+              disableArchiveOutput: false,
+              enableCache: true,
+              unstableThreshold: 90,
+              passThreshold: 95,
+              onlyCritical: true
+              ])
+   }
+}
