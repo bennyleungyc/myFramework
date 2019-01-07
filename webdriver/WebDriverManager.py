@@ -10,6 +10,7 @@ class WebDriverManager(object):
     def __init__(self, browser):
         if self.__driver is None:
             if (browser.lower()) == "chrome":
+                # self.__driver = webdriver.Chrome(ChromeDriverManager().install())
                 self.__driver = webdriver.Chrome(ChromeDriverManager().install())
                 # self.__driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 

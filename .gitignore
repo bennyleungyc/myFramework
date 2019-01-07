@@ -8,3 +8,4 @@ report.html
 pyvenv.cfg
 pip-selfcheck.json
 exportpath.sh
+output/

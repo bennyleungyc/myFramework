@@ -15,11 +15,11 @@ class BasePage(object):
         print(browser)
         self._browser = browser
 
-    def openbrowser(self):
+    def opentestbrowser(self):
         print('BasePage====open')
         WebDriverManager.setdriver(self._browser)
         self._web = Web(self._browser)
         self._web.openlink(DEFAULT_BASE_URL)
 
-    def closebrowser(self):
+    def closetestbrowser(self):
         self._web.close_all()

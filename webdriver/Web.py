@@ -3,6 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver.WebDriverManager import WebDriverManager
 from selenium.webdriver.support.ui import Select
+# from utils.screenshot2 import screenshot
 
 class Web(object):
 
@@ -53,7 +54,14 @@ class Web(object):
         self._driver.get(path)
 
     def close_all(self):
-        # print('abc')
+        print(self._driver)
+        # self.capture_page_screenshot()
         self._driver.close()
+        # self._driver.screenshot('/Users/Benny/myFramework/close.png')
         self._driver.quit()
         # self._driver.stop()
+
+    def capture_page_screenshot(self):
+        ul = BuiltIn().get_library_instance('SeleniumLibrary')
+        path = ul.capture_page_screenshot()
+        return path

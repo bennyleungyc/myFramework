@@ -1,0 +1,1 @@
+robot --include uat --listener allure_robotframework tests/

@@ -1,9 +1,11 @@
 *** Settings ***
 Library     pages//BasePage.py    Chrome
+Library     Selenium2Library
 
 *** Keywords ***
 TestSetup
-    Openbrowser
+    Opentestbrowser
 
 TestTeardown
-    Closebrowser
+    Capture Page Screenshot
+    closetestbrowser
