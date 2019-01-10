@@ -1,3 +1,5 @@
+import os
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -56,7 +58,9 @@ class Web(object):
     def close_all(self):
         print(self._driver)
         # self.capture_page_screenshot()
-        self._driver.get_screenshot_as_file('/Users/Benny/myFramework/close.png')
+        print(os.getcwd() + '/close.png')
+        self._driver.get_screenshot_as_file(os.getcwd() + '/close.png')
+
         self._driver.close()
         self._driver.quit()
         # self._driver.stop()
