@@ -56,8 +56,8 @@ class Web(object):
     def close_all(self):
         print(self._driver)
         # self.capture_page_screenshot()
+        self._driver.get_screenshot_as_file('/Users/Benny/myFramework/close.png')
         self._driver.close()
-        # self._driver.screenshot('/Users/Benny/myFramework/close.png')
         self._driver.quit()
         # self._driver.stop()
 
