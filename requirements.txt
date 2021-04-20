@@ -13,7 +13,7 @@ lxml==4.3.0
 more-itertools==5.0.0
 namedlist==1.7
 pluggy==0.8.0
-py==1.7.0
+py==1.10.0
 pytest==4.1.0
 pytest-allure-adaptor==1.7.10
 requests==2.20.1
